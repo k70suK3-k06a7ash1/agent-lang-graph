@@ -29,11 +29,11 @@ const search = tool(
 const tools = [search];
 
 const OllamaModels = {
-	PHI4: "phi4",
+	LLAMA3_3: "llama3.3",
 } as const;
 
 const model = new ChatOllama({
-	model: OllamaModels.PHI4,
+	model: OllamaModels.LLAMA3_3,
 });
 
 // Initialize memory to persist state between graph runs
