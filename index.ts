@@ -22,9 +22,12 @@ const agent = createReactAgent({
 	checkpointSaver: agentCheckpointer,
 });
 
-// Now it's time to use!
 const agentFinalState = await agent.invoke(
-	{ messages: [new HumanMessage("what is the current weather in tokyo")] },
+	{
+		messages: [
+			new HumanMessage("what is the current weather in shibuya in tokyo"),
+		],
+	},
 	{ configurable: { thread_id: "42" } },
 );
 
@@ -33,7 +36,7 @@ console.log(
 );
 
 const agentNextState = await agent.invoke(
-	{ messages: [new HumanMessage("what about ny")] },
+	{ messages: [new HumanMessage("what about sapporo in hokkaido")] },
 	{ configurable: { thread_id: "42" } },
 );
 
