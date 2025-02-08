@@ -14,6 +14,7 @@ const agentModel = new ChatOllama({
 	model: OllamaModels.LLAMA3_2,
 });
 
+// Initialize memory to persist state between graph runs
 const agentCheckpointer = new MemorySaver();
 const agent = createReactAgent({
 	llm: agentModel,
@@ -21,12 +22,23 @@ const agent = createReactAgent({
 	checkpointSaver: agentCheckpointer,
 });
 
+// const agentFinalState = await agent.invoke(
+// 	{
+// 		messages: [
+// 			new HumanMessage("what is the current weather in shibuya in tokyo"),
+// 		],
+// 	},
+// 	{ configurable: { thread_id: "42" } },
+// );
+
+// console.log(
+// 	agentFinalState.messages[agentFinalState.messages.length - 1].content,
+// );
+
 const agentNextState = await agent.invoke(
 	{
 		messages: [
-			new HumanMessage(
-				"What are Wittgenstein's achievements in early philosophy?",
-			),
+			new HumanMessage("what is the current weather in sapporo in hokkaido"),
 		],
 	},
 	{ configurable: { thread_id: "42" } },
