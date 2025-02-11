@@ -8,8 +8,14 @@ multi-agent:
 setup:
 	cp .env.template .env
 
+
+openai-agent:
+	bun run agents/openai-agent.ts
+
 run-ll:
 	bun run agents/low-level-implement.ts
 
 run-research:
 	bun run agents/research-company.ts
+test:
+	bun run llm/openai.ts
