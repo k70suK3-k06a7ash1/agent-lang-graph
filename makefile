@@ -4,3 +4,9 @@ run:
 	bun run index.ts
 setup:
 	cp .env.template .env
+
+run-ll:
+	bun run low-level-implement.ts
+
+run-research:
+	bun run research-company.ts
