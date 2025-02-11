@@ -101,7 +101,7 @@ const app = workflow.compile({ checkpointer });
 // Use the Runnable
 const finalState = await app.invoke(
 	{ messages: [new HumanMessage("Please Research company of SONY")] },
-	{ configurable: { thread_id: "42" } },
+	{ configurable: { thread_id: "1" } },
 );
 
 console.log(finalState.messages[finalState.messages.length - 1].content);
