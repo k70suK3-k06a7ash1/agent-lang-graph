@@ -5,7 +5,7 @@ import { CheerioWebBaseLoader } from "@langchain/community/document_loaders/web/
 import { tool } from "@langchain/core/tools";
 import { Annotation } from "@langchain/langgraph";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
-import { ChatOllama } from "@langchain/ollama";
+import { ChatOpenAI } from "@langchain/openai";
 import { z } from "zod";
 import { JsonOutputToolsParser } from "langchain/output_parsers";
 import {
@@ -32,13 +32,7 @@ const ResearchTeamState = Annotation.Root({
 	}),
 });
 
-const OllamaModels = {
-	LLAMA3_2: "llama3.2",
-} as const;
-
-const llm = new ChatOllama({
-	model: OllamaModels.LLAMA3_2,
-});
+const llm = new ChatOpenAI({ modelName: "gpt-3.5-turbo" });
 
 const tavilyTool = new TavilySearchResults();
 
@@ -127,7 +121,7 @@ const researchNode = (state: typeof ResearchTeamState.State) => {
 };
 
 async function createTeamSupervisor(
-	llm: ChatOllama,
+	llm: ChatOpenAI,
 	systemPrompt: string,
 	members: string[],
 ): Promise<Runnable> {

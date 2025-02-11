@@ -3,7 +3,7 @@ push:
 run:
 	bun run agents/making-first-agent.ts
 
-run-multi-agent:
+multi-agent:
 	bun run agents/multi-agent.ts
 setup:
 	cp .env.template .env
