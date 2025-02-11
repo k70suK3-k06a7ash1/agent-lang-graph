@@ -176,7 +176,7 @@ const supervisorAgent = await createTeamSupervisor(
 		" task and respond with their results and status. When finished," +
 		" respond with FINISH.\n\n" +
 		" Select strategically to minimize the number of steps taken.",
-	["Search", "WebScraper"],
+	["Search", "WebScraper"], // members
 );
 
 import { END, START, StateGraph } from "@langchain/langgraph";
